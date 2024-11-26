@@ -99,3 +99,31 @@ const weapons = [
         power: 250
     }
 ];
+
+
+//**MILESTONE 1 - Scelta dell’arma:**
+////ogni combattente sceglierà casualmente un'arma dalla relativa lista. 
+////Una volta scelta, un'arma non sarà più disponibile per i successivi combattenti.
+
+// Function to shuffle an array (make its elements casual and not repeated)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) { // While there remain elements to shuffle
+        const j = Math.floor(Math.random() * (i + 1)); // pick a random remaining element
+        [array[i], array[j]] = [array[j], array[i]]; // and swap it with the current element
+    }
+    return array;
+};
+
+let shuffledWeapons = shuffleArray([...weapons]); //call the function on a COPY of weapons using the spread operator
+
+// create a new array of fighters mapped with a random weapon from the shuffled weapons array
+let armedFighters = fighters.map((el, index) => {
+    return {
+        name: el.name,
+        power: el.power,
+        weapon: shuffledWeapons[index]
+    }
+
+});
+
+console.log(armedFighters);
