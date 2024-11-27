@@ -126,4 +126,23 @@ let armedFighters = fighters.map((el, index) => {
 
 });
 
-console.log(armedFighters);
+console.log("List of fighters with weapons: ", armedFighters);
+
+//**MILESTONE 2 - Allenamento:**
+////ogni combattente si sottoporrà ad un allenamento che incrementerà (o forse no) la sua potenza, 
+////moltiplicandola per un numero casuale tra 1 e 100.
+
+//function to get a random number between min and max INCLUDED
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min) //random number between 0 and max + 1 to include max, + min to start by min
+}
+
+let trainedFighters = armedFighters.map((el) => {
+    return {
+        name: el.name,
+        power: el.power * getRandomNumber(1, 100),
+        weapon: el.weapon
+    }
+})
+
+console.log("List of fighters after training: ", trainedFighters);
