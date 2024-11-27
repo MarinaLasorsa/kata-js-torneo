@@ -146,3 +146,10 @@ let trainedFighters = armedFighters.map((el) => {
 })
 
 console.log("List of fighters after training: ", trainedFighters);
+
+//**MILESTONE 3 - Qualificazione:**
+////escludiamo dal torneo chi, dopo l'allenamento non è riuscito a raggiungere una potenza di almeno 2000.
+
+let qualifiedFighters = trainedFighters.filter((el) => el.power >= 2000)
+
+console.log("List of qualified fighters: ", qualifiedFighters);
