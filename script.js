@@ -161,9 +161,12 @@ console.log("List of qualified fighters: ", qualifiedFighters);
 
 let winners = [];
 
-for (let i = 0; i < qualifiedFighters.length; i = i + 2) {
+//for every loop of the array, index moves twice to avoid repeating fights
+for (let i = 0; i < qualifiedFighters.length; i = i + 2) {  //i = i + 2 can also be written as i += 2
+    //define the fighters as objects at the right indexes
     let fighter1 = qualifiedFighters[i]
     let fighter2 = qualifiedFighters[i + 1];
+    //compare powers, winner is added to the winners array
     if (fighter1.power >= fighter2.power) {
         winners.push(fighter1)
     } else {
@@ -172,3 +175,15 @@ for (let i = 0; i < qualifiedFighters.length; i = i + 2) {
 }
 
 console.log("List of winners: ", winners);
+
+//**MILESTONE 5 - Premiazione:**
+////tra tutti i vincitori degli scontri, saliranno sul podio i 3 combattenti con la potenza più alta, in ordine decrescente.
+
+//function compares a and b and sorts them in descending order into a copy array
+let sortedWinners = winners.toSorted((a, b) => b.power - a.power);
+
+//console.log("Sorted winners: ", sortedWinners);
+
+let podium = sortedWinners.slice(0, 3);
+
+console.log("Winners on podium from first to third: ", podium);
