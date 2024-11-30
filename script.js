@@ -153,3 +153,22 @@ console.log("List of fighters after training: ", trainedFighters);
 let qualifiedFighters = trainedFighters.filter((el) => el.power >= 2000)
 
 console.log("List of qualified fighters: ", qualifiedFighters);
+
+//**MILESTONE 4 - Combattimento:**
+////i combattimenti si svolgeranno tra un partecipante e il successivo dell'elenco, assicurandosi che ognuno combatta una sola volta. 
+////In ogni scontro vincerà il combattente con la potenza più alta. 
+//In caso di parità vincerà chi "gioca in casa", ossia chi viene prima nell'elenco.
+
+let winners = [];
+
+for (let i = 0; i < qualifiedFighters.length; i = i + 2) {
+    let fighter1 = qualifiedFighters[i]
+    let fighter2 = qualifiedFighters[i + 1];
+    if (fighter1.power >= fighter2.power) {
+        winners.push(fighter1)
+    } else {
+        winners.push(fighter2)
+    }
+}
+
+console.log("List of winners: ", winners);
